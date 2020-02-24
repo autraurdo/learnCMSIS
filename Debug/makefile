@@ -40,8 +40,8 @@ test_f3.bin \
 all: test_f3.elf secondary-outputs
 
 # Tool invocations
-test_f3.elf: $(OBJS) $(USER_OBJS) D:\STUDENTS\startCmsisF303\STM32F303VCTX_FLASH.ld
-	arm-none-eabi-gcc -o "test_f3.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\STUDENTS\startCmsisF303\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_f3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+test_f3.elf: $(OBJS) $(USER_OBJS) D:\STUDENTS\startCmsisF303\learnCMSIS\STM32F303VCTX_FLASH.ld
+	arm-none-eabi-gcc -o "test_f3.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\STUDENTS\startCmsisF303\learnCMSIS\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_f3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
