@@ -1,0 +1,3 @@
+"CMSIS/Src/system_stm32f3xx.o"
+"Core/Src/main.o"
+"Startup/startup_stm32f303xc.o"
