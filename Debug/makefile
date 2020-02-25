@@ -24,24 +24,24 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-test_f3.elf \
+lerancmsis.elf \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-test_f3.list \
+lerancmsis.list \
 
 OBJCOPY_BIN += \
-test_f3.bin \
+lerancmsis.bin \
 
 
 # All Target
-all: test_f3.elf secondary-outputs
+all: lerancmsis.elf secondary-outputs
 
 # Tool invocations
-test_f3.elf: $(OBJS) $(USER_OBJS) D:\STUDENTS\startCmsisF303\learnCMSIS\STM32F303VCTX_FLASH.ld
-	arm-none-eabi-gcc -o "test_f3.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\STUDENTS\startCmsisF303\learnCMSIS\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_f3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+lerancmsis.elf: $(OBJS) $(USER_OBJS) D:\made_IN\stm\lerancmsis\STM32F303VCTX_FLASH.ld
+	arm-none-eabi-gcc -o "lerancmsis.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\made_IN\stm\lerancmsis\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lerancmsis.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -50,13 +50,13 @@ default.size.stdout: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-test_f3.list: $(EXECUTABLES)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "test_f3.list"
+lerancmsis.list: $(EXECUTABLES)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "lerancmsis.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-test_f3.bin: $(EXECUTABLES)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "test_f3.bin"
+lerancmsis.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "lerancmsis.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
 
